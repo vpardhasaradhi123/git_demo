@@ -1,0 +1,92 @@
+#1. data1=[12,34,78,2,5000,199,65001,122,1,225,671,21,41,9,9999]
+# find the total of all TWO digits number
+#  find the average of them
+#   find the highest - two digit  and three digit number
+#   find the lowest  - two digit and  three digit number
+#   ignore all other data
+
+a=[12,34,78,2,5000,199,65001,122,1,225,671,21,41,9,9999]
+td=[]
+thd=[]
+sum=0
+count=0
+for i in a:
+    if 10<=i<=99:
+        td.append(i)
+        sum+=i
+        count+=1
+    elif 100<=i<=999:
+        thd.append(i)
+print('the total of all TWO digits number is:',sum)
+print('the average is:',sum/count)
+print('the highest - two digit number is:',max(td))
+print('the highest - three digit number is:',min(td))
+print('the lowest  - two digit number is:',max(thd))
+print('the lowest  - three digit number is:',min(thd))
+
+
+#Keep inputing the numbers and add it to the list
+#   stop when the user inputs any negative number
+#   display the first and last number
+#   display the highest value comparing between
+#  second inputted number and the last but one inputted number
+
+n=1
+l=[]
+while n>0:
+    a=int(input('enter the number:'))
+    if a>0:
+        l.append(a)
+    else:
+        break
+print(l)
+print('first number is:',l[0])
+print('last number is:',l[-1])
+print('the highest value of second inputted number and the last but one inputted number is:',max(l[1],l[-2]))
+
+
+#use the concept of random() - generate 100 random number
+#between 1 to 5000 store those numbers in a set
+#find how many numbers are divisible by 5 as well as 7
+#find the avg of those numbers too
+
+
+import random
+
+a=range(1,5000)
+b=random.sample(a,100)
+c=set(b)
+sum=0
+count=0
+for i in b:
+    if i%5==0 and i%7==0:
+        sum+=i
+        count+=1
+print(count)
+print(sum/count)
+
+
+
+#generate 100000 random numbers store it in list as well as tuple
+#iterate the list and the tuple - separately (donot display)
+#find how much time list takes to iterate  100000 items
+#find how much time tuple takes to iterate 100000 items
+
+
+import random
+import time
+st=time.time()
+a=range(1,100001)
+b=random.sample(a,k=100000)
+for i in b:
+    pass
+end=time.time()-st
+print(end)
+st=time.time()
+a=range(1,100001)
+b=tuple(random.sample(a,k=100000))
+for i in b:
+    pass
+end=time.time()-st
+print(end)
+
